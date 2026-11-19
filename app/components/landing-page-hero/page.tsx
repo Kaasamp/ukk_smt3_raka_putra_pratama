@@ -1,23 +1,14 @@
-export function LandingPageHero() {
-    return (
-        <section className="flex flex-1 w-full min-h-[115vh] bg-pink-800 dark:bg-black items-center justify-center px-6 text-center">
-            <div className="container">
-                <div>
-                    <h1 className="font-mono text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                        Welcome SMK MVP ARS INTERNASIONAL
-                    </h1>
-                    <p className="
-                        mx-auto
-                        mt-6 
-                        max-w-2xl 
-                        text-base 
-                        leading-7 
-                        text-pink-100 
-                        sm:text-lg">
-                        SMK MVP ARS INTERNASIONAL is a leading educational institution dedicated to providing high-quality education and fostering a nurturing environment for students to thrive academically and personally.
-                    </p>
-                </div>
+export default function LandingPageHero() {
+  return (
+        <section className="flex min-h-[114vh] w-full items-center justify-center bg-blue-100 px-6 text-center dark:bg-black ">
+            <div className="max-w-3xl text-white">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-6xl text-black">
+                    LANDING PAGE 
+                </h1>
+                <p className="mx-auto mt-6 max-w-2xl text-base landing-7 sm:text-lg text-black">
+                    ini adalah halaman landing page
+                </p>
             </div>
         </section>
-    );
+  );
 }

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import MenuLandingPage from "./components/navigation-menu/page";
 import { Button } from "@/components/ui/button";
-import { LandingPageHero } from "./components/landing-page-hero/page";
+import  LandingPageHero  from "./components/landing-page-hero/page";
 import { ArrowRight, Eye, EyeOff, KeyRound, Mail, X } from "lucide-react"
 import {
   Field,

@@ -22,18 +22,19 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
- 
+
 type ManagedUser = {
     id: number
+    kodeUser: string
     fullname: string
     email: string
     role: string
     hasToken: boolean
     createdAt: string
 }
- 
+
 const PAGE_SIZE = 10
- 
+
 export default function UserManagementPage() {
     const router = useRouter()
     const [users, setUsers] = useState<ManagedUser[]>([])
@@ -41,7 +42,7 @@ export default function UserManagementPage() {
     const [totalUsers, setTotalUsers] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState("")
- 
+
     async function loadUsers(page = currentPage) {
         setIsLoading(true)
         setError("")
@@ -58,16 +59,16 @@ export default function UserManagementPage() {
             setIsLoading(false)
         }
     }
- 
+
     useEffect(() => {
         void loadUsers(1)
     }, [])
- 
+
     function goToPage(page: number) {
         setCurrentPage(page)
         void loadUsers(page)
     }
- 
+
     async function deleteUser(user: ManagedUser) {
         if (!window.confirm(`Hapus user ${user.fullname}?`)) return
         setError("")
@@ -86,9 +87,9 @@ export default function UserManagementPage() {
             setError(deleteError instanceof Error ? deleteError.message : "Gagal menghapus user.")
         }
     }
- 
+
     const totalPages = Math.max(1, Math.ceil(totalUsers / PAGE_SIZE))
- 
+
     return (
         <Card className="m-6 px-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -102,12 +103,12 @@ export default function UserManagementPage() {
                 </Button>
             </div>
             {error && <p role="alert" className="mt-4 text-sm text-destructive">{error}</p>}
- 
+
             <div className="mt-5 overflow-x-auto">
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>ID</TableHead>
+                            <TableHead>ID User</TableHead>
                             <TableHead>Nama lengkap</TableHead>
                             <TableHead>Email</TableHead>
                             <TableHead>Role</TableHead>
@@ -123,7 +124,7 @@ export default function UserManagementPage() {
                             <TableRow><TableCell colSpan={7} className="text-center">Belum ada user.</TableCell></TableRow>
                         ) : users.map((user) => (
                             <TableRow key={user.id}>
-                                <TableCell>{user.id}</TableCell>
+                                <TableCell>{user.kodeUser}</TableCell>
                                 <TableCell className="font-medium">{user.fullname}</TableCell>
                                 <TableCell>{user.email}</TableCell>
                                 <TableCell className="capitalize">{user.role}</TableCell>
@@ -158,7 +159,7 @@ export default function UserManagementPage() {
                     </TableBody>
                 </Table>
             </div>
- 
+
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
                 <Pagination>
                     <PaginationContent>
