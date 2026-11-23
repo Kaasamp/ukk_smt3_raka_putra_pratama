@@ -25,3 +25,10 @@ model User {
 
   @@map("users")
 }
+
+model tbl_facility {
+  id              Int      @id @default(autoincrement())
+  nama_facility    String      @db.VarChar(100)
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt  @map("updated_at")
+}

@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { House, Users } from "lucide-react"
+import { House, Users, Mail } from "lucide-react"
 
 const listMenu = [
   {
@@ -22,6 +22,11 @@ const listMenu = [
     name: "User Management",
     url: "/admin/user-management",
     icon: Users
+  },
+  {
+    name: "Facility",
+    url: "/admin/facility",
+    icon: Mail
   },
 ]
 
